@@ -5,12 +5,24 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     public Transform ball;
-    
+    public float speed = 10f;
     
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = (new Vector3(transform.position.x, ball.position.y, transform.position.z));
+        Move();
+    }
+
+    void Move()
+    {
+        if(ball.position.y > transform.position.y)
+        {
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+        }
+        if(ball.position.y < transform.position.y)
+        {
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
+        }
     }
 }
