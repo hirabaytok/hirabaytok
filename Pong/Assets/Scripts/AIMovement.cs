@@ -16,6 +16,11 @@ public class AIMovement : MonoBehaviour
 
     void Move()
     {
+        if(ball == null)
+        {
+            ball = GameObject.FindGameObjectWithTag("Ball").transform;
+        }
+        
         if(ball.position.y > transform.position.y)
         {
             transform.Translate(Vector3.up * speed * Time.deltaTime);
